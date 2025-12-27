@@ -45,7 +45,12 @@ loja2.duplicated().sum()
 ```
   
 ## Analisando os dados
-Em seguida calculei o faturamento total de cada loja, com o objetivo de comparar qual está com maior faturamento.
+Em seguida comecei a análise mais detalhada dos nossos conjuntos de dados.
+
+Nessa etapa, calculei:
+* O faturamento total de cada loja, com o objetivo de comparar qual apresenta o maior faturamento.
+* A quantidade de produtos vendidos por categoria em cada loja.
+* Criei um gráfico de barras agrupadas comparando as categorias de produtos mais vendidas por loja
 
 ### Calculando faturamento total por loja:
 ```python
@@ -53,3 +58,12 @@ faturamento_loja = loja['Preço'].sum()
 print(f'Faturamento loja R${faturamento_loja:,.2f}')
 ```
 
+### Calculando a quantidade de produtos mais vendidos por categoria em cada loja
+```python
+qtd_vendas_cat_loja1 = loja1['Categoria do Produto'].value_counts()
+qtd_vendas_cat_loja1
+```
+### Criando o gráfico de barras agrupadas para comparar a categoria de produtos mais vendidos
+```python
+df_vendas_por_categoria.plot(kind='bar', figsize= (10, 5))
+```
