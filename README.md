@@ -70,6 +70,27 @@ qtd_vendas_cat_loja1
 ```python
 df_vendas_por_categoria.plot(kind='bar', figsize= (10, 5))
 ```
+
+### Calculando a média de avaliações de clientes por loja
+```python
+avaliacao_cliente_loja = loja['Avaliação da compra'].mean()
+print(f'{avaliacao_cliente_loja:.2f}')
+```
+
+* Criando um DataFrame com as médias de avaliações de todas as lojas
+```python
+cliente_avaliacao_conjunto = pd.DataFrame({'Loja':['Loja 1','Loja 2','Loja 3','Loja 4'],
+                                           'Media avaliação': [avaliacao_cliente_loja1,
+                                                         avaliacao_cliente_loja2,
+                                                         avaliacao_cliente_loja3,
+                                                         avaliacao_cliente_loja4]})
+cliente_avaliacao_conjunto.head()
+```
+* Gráfico de pontos para a visualização
+```python
+cliente_avaliacao_conjunto.plot(kind='scatter', x = 'Media avaliação', y = 'Loja', figsize=(8,4), title='Média de avaliação por loja')
+```
+
 ### Identificando os produtos mais e menos vendidos
 ```python
 vendas_por_produto_loja = loja['Produto'].value_counts()
@@ -80,15 +101,15 @@ produtos_menos_vendidos_loja = vendas_por_produto_loja.nsmallest()
 produtos_mais_vendidos_loja = produtos_mais_vendidos_loja.to_frame(name = 'Produtos mais vendidos loja ')
 produtos_menos_vendidos_loja = produtos_menos_vendidos_loja.to_frame(name = 'Produtos menos vendidos loja ')
 ```
-### Criando os gráficos de barras individuais para cada loja com os produtos mais e menos vendidos
-* Produtos mais vendidos
+* Criando os gráficos de barras individuais para cada loja com os produtos mais e menos vendidos
+Produtos mais vendidos
 ```python
 produtos_mais_vendidos_loja.plot(kind='barh', figsize=(10,5), color='green', title= 'Produtos menos vendidos loja')
 plt.xlabel('Vendas')
 plt.ylabel('Produtos')
 plt.show()
 ```
-* Produtos menos vendidos
+Produtos menos vendidos
 ```python
 produtos_menos_vendidos_loja.plot(kind='barh', figsize=(10,5), color='green', title= 'Produtos menos vendidos loja')
 plt.xlabel('Vendas')
@@ -149,7 +170,7 @@ media_custo_frete_conjunto = pd.DataFrame({'Loja': ['Loja 1','Loja 2','Loja 3','
                                                                     media_custo_frete_loja4]})
 media_custo_frete_conjunto.head()
 ```
-Criando o gráfico de colunas  para a visualização
+*Criando o gráfico de colunas  para a visualização
 ```python
 media_custo_frete_conjunto.plot(kind='barh', x = 'Loja', y = 'Custo médio por loja', figsize=(10, 6), title= 'Custo médio de frete por loja')
 plt.xlabel('Custo médio por loja')
