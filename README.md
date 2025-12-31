@@ -140,7 +140,7 @@ media_custo_frete_loja = loja['Frete'].mean()
 print(f'Custo médio do frete loja: R${media_custo_frete_loja:,.2f}')
 ```
 
-* DataFrame com as médias de avaliações das 4 lojas
+* DataFrame com o custo médio de frete das 4 lojas
 ```python
 media_custo_frete_conjunto = pd.DataFrame({'Loja': ['Loja 1','Loja 2','Loja 3','Loja 4'],
                                            'Custo médio por loja': [media_custo_frete_loja1,
