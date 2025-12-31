@@ -2,7 +2,9 @@
 
  
 ## Descrição
-Neste projeto irei ajudar o Senhor João a decidir qual loja da sua rede vender, analisando dados de vendas, desempenho e avaliações de suas 4 lojas. O objetivo é identificar a loja com menor eficiência e apresentar uma recomendação final baseada nos dados.
+Neste projeto irei ajudar o Senhor João a decidir qual loja da sua rede vender, analisando dados de vendas, desempenho e avaliações de suas 4 lojas. 
+
+O objetivo é identificar a loja com menor eficiência e apresentar uma recomendação final baseada nos dados.
 
 
 ## Conhecendo os dados
@@ -71,13 +73,15 @@ faturamento_conjunto = pd.DataFrame({'Loja':['Loja 1','Loja 2','Loja 3','Loja 4'
 ]})
 faturamento_conjunto.head()
 ```
-*Criando o gráfico de barras comparando o faturamentos de todas as lojas
+* Criando o gráfico de barras comparando o faturamentos de todas as lojas
 ```python
 faturamento_conjunto.plot(kind='barh',x='Loja', y='Faturamento', figsize=(10,6), title='Faturamento das lojas')
 plt.xlabel('Lojas')
 plt.ylabel('Faturamento')
 plt.show()
 ```
+![Faturamento total das lojas](graficos/grafico_de_colunas_faturamento_das_4lojas.png)
+
 ### Calculando a quantidade de produtos mais vendidos por categoria em cada loja
 ```python
 qtd_vendas_cat_loja1 = loja1['Categoria do Produto'].value_counts()
@@ -87,7 +91,7 @@ qtd_vendas_cat_loja1
 ```python
 df_vendas_por_categoria.plot(kind='bar', figsize= (10, 5))
 ```
-
+![Categoria de produtos mais vendidos](graficos/grafico_de_barras_agrupadas_categoria_produtos_mais_vendidos.png)
 ### Calculando a média de avaliações de clientes por loja
 ```python
 avaliacao_cliente_loja = loja['Avaliação da compra'].mean()
@@ -103,11 +107,11 @@ cliente_avaliacao_conjunto = pd.DataFrame({'Loja':['Loja 1','Loja 2','Loja 3','L
                                                          avaliacao_cliente_loja4]})
 cliente_avaliacao_conjunto.head()
 ```
-* Gráfico de pontos para a visualização
+* Criando o gráfico de pontos para a visualização
 ```python
 cliente_avaliacao_conjunto.plot(kind='scatter', x = 'Media avaliação', y = 'Loja', figsize=(8,4), title='Média de avaliação por loja')
 ```
-
+![média de avaliação das lojas](graficos/grafico_de_pontos_media_de_avaliacoes.png)
 ### Identificando os produtos mais e menos vendidos
 ```python
 vendas_por_produto_loja = loja['Produto'].value_counts()
@@ -119,6 +123,7 @@ produtos_mais_vendidos_loja = produtos_mais_vendidos_loja.to_frame(name = 'Produ
 produtos_menos_vendidos_loja = produtos_menos_vendidos_loja.to_frame(name = 'Produtos menos vendidos loja ')
 ```
 * Criando os gráficos de barras individuais para cada loja com os produtos mais e menos vendidos
+  
 Produtos mais vendidos
 ```python
 produtos_mais_vendidos_loja.plot(kind='barh', figsize=(10,5), color='green', title= 'Produtos menos vendidos loja')
@@ -126,6 +131,7 @@ plt.xlabel('Vendas')
 plt.ylabel('Produtos')
 plt.show()
 ```
+![Produtos mais vendidos da loja 1](graficos/grafico_de_colunas_produtos_mais_vendidos_loja1.png)
 Produtos menos vendidos
 ```python
 produtos_menos_vendidos_loja.plot(kind='barh', figsize=(10,5), color='green', title= 'Produtos menos vendidos loja')
@@ -133,6 +139,7 @@ plt.xlabel('Vendas')
 plt.ylabel('Produtos')
 plt.show()
 ```
+![Produtos menos vendidos da loja 1](graficos/grafico_de_colunas_produtos_menos_vendidos_loja1.png)
 ### Criando um DataFrame e um gráfico de barras agrupadas contendo as informações sobre os produtos mais e menos vendidos das quatro lojas
 * DataFrame com os produtos mais vendidos nas quatro lojas 
 ```python
@@ -153,6 +160,7 @@ plt.xlabel('Produto')
 plt.ylabel('Quantidade vendida')
 plt.show()
 ```
+![Produtos mais vendidos nas lojas](graficos/grafico_de_barras_agrupadas_produtos_mais_vendidos.png)
 * DataFrame com os produtos menos vendidos nas quatro lojas 
 ```python
 comparacao_produtos_menos_vendidos = pd.concat([
@@ -172,6 +180,7 @@ plt.xlabel('Produto')
 plt.ylabel('Quantidade vendida')
 plt.show()
 ```
+![Produtos menos vendidos  nas lojas](graficos/grafico_de_barras_agrupadas_produtos_menos_vendidos.png)
 ### Calculando o custo médio de frete para cada loja
 ```python
 media_custo_frete_loja = loja['Frete'].mean()
@@ -187,10 +196,11 @@ media_custo_frete_conjunto = pd.DataFrame({'Loja': ['Loja 1','Loja 2','Loja 3','
                                                                     media_custo_frete_loja4]})
 media_custo_frete_conjunto.head()
 ```
-*Criando o gráfico de colunas  para a visualização
+* Criando o gráfico de colunas  para a visualização
 ```python
 media_custo_frete_conjunto.plot(kind='barh', x = 'Loja', y = 'Custo médio por loja', figsize=(10, 6), title= 'Custo médio de frete por loja')
 plt.xlabel('Custo médio por loja')
 plt.ylabel('Loja')
 plt.show()
 ```
+![Custo médio de frete das quatro lojas](graficos/grafico_de_colunas_media_de_frete_lojas.png)
