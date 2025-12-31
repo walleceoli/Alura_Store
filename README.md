@@ -49,8 +49,10 @@ Em seguida comecei a análise mais detalhada dos nossos conjuntos de dados.
 
 Nessa etapa, calculei:
 * O faturamento total de cada loja, com o objetivo de comparar qual apresenta o maior faturamento.
-* A quantidade de produtos vendidos por categoria em cada loja e para melhor visualização criei um gráfico de barras agrupadas comparando as categorias de produtos mais vendidas
-* Identificação dos produtos mais e menos vendidos em cada loja, com gráficos de barras individuais por loja e gráficos de barras agrupadas para comparação entre as quatro lojas.
+* A quantidade de produtos vendidos por categoria em cada loja e para melhor visualização criei um gráfico de barras agrupadas comparando as categorias de produtos mais vendidas.
+* A média de avaliações de clientes por loja e para a visualização utilizei um gráfico de pontos.
+* Identificação dos produtos mais e menos vendidos em cada loja, com gráficos de barras individuais por loja e gráficos de barras agrupadas para comparação entre as quatro lojas. 
+* O custo médio de frete para cada loja, representados por um gráfico de colunas.
 
 ## Codigos e metodos utilizados para as analises e visualizações
 ### Calculando faturamento total por loja:
@@ -130,5 +132,27 @@ Gráfico dos produtos menos vendidos
 comparacao_produtos_menos_vendidos.plot(kind='bar', figsize=(12,8), width= 0.9, title='Bottom 5 produtos menos vendidos por loja')
 plt.xlabel('Produto')
 plt.ylabel('Quantidade vendida')
+plt.show()
+```
+### Calculando o custo médio de frete para cada loja
+```python
+media_custo_frete_loja = loja['Frete'].mean()
+print(f'Custo médio do frete loja: R${media_custo_frete_loja:,.2f}')
+```
+
+* DataFrame com as médias de avaliações das 4 lojas
+```python
+media_custo_frete_conjunto = pd.DataFrame({'Loja': ['Loja 1','Loja 2','Loja 3','Loja 4'],
+                                           'Custo médio por loja': [media_custo_frete_loja1,
+                                                                    media_custo_frete_loja2,
+                                                                    media_custo_frete_loja3,
+                                                                    media_custo_frete_loja4]})
+media_custo_frete_conjunto.head()
+```
+Criando o gráfico de colunas  para a visualização
+```python
+media_custo_frete_conjunto.plot(kind='barh', x = 'Loja', y = 'Custo médio por loja', figsize=(10, 6), title= 'Custo médio de frete por loja')
+plt.xlabel('Custo médio por loja')
+plt.ylabel('Loja')
 plt.show()
 ```
