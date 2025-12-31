@@ -1,0 +1,14 @@
+Analisando os dados e visualizando os gráficos podemos ver que as lojas possuem diferentes desempenhos.
+
+Por  exemplo em relação  ao faturamento total de cada loja, podemos ver que a loja 1 possui o maior faturamento, seguindo por loja 2, loja 3 e a com menor faturamento a loja 4.
+
+
+Em relação as categorias de produtos mais e menos vendidos  chegamos a conclusão de que a loja 1, 3, e 4 dominam o ranking das catégorias mais rentaveis, comomoveis, eletronicos e  brinquedos, vemos que a loja 2 fica um pouco abaixo mas tem um melhor numero de vendas nas categorias um pouco menos rentaveis, como eletrodomesticos, esportes e lazer e instrumentos musicais.
+
+Já em relação a média  de avaliações  dos clientes podemos observar que a loja 3 é a mais bem avaliada, seguindo por loja 2, 4 e a menos bem avaliada é a loja 1.
+
+Quando olhamos para os dados dos produtos mais vendidos vemos que a loja 2 esta em primeiro lugar, com mais itens vendidos, em seguida a loja 4, 1 e por fim e ultimo lugar a loja 3.
+
+Em relação aos produtos menos vendidos, a loja  1 é a que mais vende, seguido pela loja 3, 2 e a com menos vendas em relação aos produtos menos vendidos temos a loja 4.
+
+Referente ao custo médio por frete vemos que a loja 1 é a que tem o maior custo medio, seguido pela loja 2, 3 e 4 com o menor custo de frete do cliente.
