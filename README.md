@@ -60,7 +60,24 @@ Nessa etapa, calculei:
 faturamento_loja = loja['Preço'].sum()
 print(f'Faturamento loja R${faturamento_loja:,.2f}')
 ```
-
+* Criando um DataFrame com o faturamento total de todas as lojas.
+```python
+faturamento_conjunto = pd.DataFrame({'Loja':['Loja 1','Loja 2','Loja 3','Loja 4'],
+                                   'Faturamento':[
+                                    faturamento_loja1,
+                                    faturamento_loja2,
+                                    faturamento_loja3,
+                                    faturamento_loja4
+]})
+faturamento_conjunto.head()
+```
+*Criando o gráfico de barras comparando o faturamentos de todas as lojas
+```python
+faturamento_conjunto.plot(kind='barh',x='Loja', y='Faturamento', figsize=(10,6), title='Faturamento das lojas')
+plt.xlabel('Lojas')
+plt.ylabel('Faturamento')
+plt.show()
+```
 ### Calculando a quantidade de produtos mais vendidos por categoria em cada loja
 ```python
 qtd_vendas_cat_loja1 = loja1['Categoria do Produto'].value_counts()
