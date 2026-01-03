@@ -8,7 +8,7 @@ O objetivo é identificar a loja com menor eficiência e apresentar uma recomend
 
 
 ## Conhecendo os dados
-Iniciei o projeto realizando checagens exploratórias para compreender e visualizar o conjunto de dados.   
+Iniciei o projeto realizando checagens para compreender e visualizar o conjunto de dados.   
 
 Nessa etapa, obtive informações como:
 * estrutura da base de dados
@@ -19,6 +19,29 @@ Nessa etapa, obtive informações como:
 
 Além disso, verifiquei a existência de valores nulos e registros duplicados, garantindo uma compreensão inicial da qualidade dos dados.
 
+## Analisando os dados
+Em seguida comecei a análise exploratórias dos nossos conjuntos de dados.
+
+Nessa etapa, calculei:
+* O faturamento total de cada loja, com o objetivo de comparar qual apresenta o maior faturamento.
+* A quantidade de produtos vendidos por categoria em cada loja e para melhor visualização criei um gráfico de barras agrupadas comparando as categorias de produtos mais vendidas.
+* A média de avaliações de clientes por loja e para a visualização utilizei um gráfico de pontos.
+* Identificação dos produtos mais e menos vendidos em cada loja, com gráficos de barras individuais por loja e gráficos de barras agrupadas para comparação entre as quatro lojas. 
+* O custo médio de frete para cada loja, representados por um gráfico de colunas.
+
+## Resumo executivo
+
+Com base nas análises realizadas sobre faturamento, categorias de produtos, volume de vendas, avaliações dos clientes e custos de frete, foi identificada uma diferença significativa de desempenho entre as quatro lojas analisadas. A recomendação estratégica é vender a Loja 4, por apresentar o menor faturamento, avaliação mediana e ausência de liderança em indicadores críticos, apesar do baixo custo médio de frete. A venda permitiria gerar caixa para novos investimentos sem comprometer os principais motores do negócio.
+
+Os recursos obtidos devem ser direcionados prioritariamente à Loja 3, que se destaca pela melhor avaliação dos clientes e bom desempenho em categorias mais rentáveis, possuindo alto potencial de crescimento com investimentos em marketing, logística e gestão de estoque. De forma secundária, recomenda-se investir na Loja 2, focando na otimização do mix de produtos e aumento das margens. Já a Loja 1, apesar do maior faturamento, demanda ações prévias de melhoria na experiência do cliente e redução dos custos logísticos antes de novos investimentos.
+
+Relatorio completo no final do notebook.
+
+## Continuidade da análise em BI
+Após a conclusão da análise exploratória em Python, os dados tratados foram exportados para Excel com o objetivo de dar continuidade às análises no Power BI.  
+Essa etapa tem como foco a construção de dashboards interativos, permitindo análises dinâmicas de faturamento, desempenho por loja, categorias de produtos, avaliações e custos de frete, apoiando a tomada de decisões estratégicas de forma visual.
+
+Os arquivos e materiais relacionados a essa etapa encontram-se em uma pasta específica no repositório.
 
 ## Métodos utilizados na exploração dos dados:
 ### Visualizando as primeiras linhas do DataFrame:
@@ -45,16 +68,6 @@ loja2.isnull().sum()
 ```python
 loja2.duplicated().sum()
 ```
-  
-## Analisando os dados
-Em seguida comecei a análise mais detalhada dos nossos conjuntos de dados.
-
-Nessa etapa, calculei:
-* O faturamento total de cada loja, com o objetivo de comparar qual apresenta o maior faturamento.
-* A quantidade de produtos vendidos por categoria em cada loja e para melhor visualização criei um gráfico de barras agrupadas comparando as categorias de produtos mais vendidas.
-* A média de avaliações de clientes por loja e para a visualização utilizei um gráfico de pontos.
-* Identificação dos produtos mais e menos vendidos em cada loja, com gráficos de barras individuais por loja e gráficos de barras agrupadas para comparação entre as quatro lojas. 
-* O custo médio de frete para cada loja, representados por um gráfico de colunas.
 
 ## Codigos e metodos utilizados para as analises e visualizações
 ### Calculando faturamento total por loja:
@@ -198,9 +211,18 @@ media_custo_frete_conjunto.head()
 ```
 * Criando o gráfico de colunas  para a visualização
 ```python
+
+
 media_custo_frete_conjunto.plot(kind='barh', x = 'Loja', y = 'Custo médio por loja', figsize=(10, 6), title= 'Custo médio de frete por loja')
 plt.xlabel('Custo médio por loja')
 plt.ylabel('Loja')
 plt.show()
 ```
 ![Custo médio de frete das quatro lojas](graficos/grafico_de_colunas_media_de_frete_lojas.png)
+
+## Ferramentas utilizadas
+- Python
+- Pandas
+- Matplotlib
+- Jupyter Notebook
+
